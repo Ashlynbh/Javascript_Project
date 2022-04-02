@@ -43,7 +43,7 @@ function runEnter() {
   console.log(inputValue);
   console.log(ufo_table);
 
-  var filteredData = tableData.filter(item => item.datetime === inputValue);
+  var filteredData = tableData.filter(item => tableData.datetime === inputValue);
 
   console.log(filteredData);
   
