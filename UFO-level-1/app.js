@@ -23,8 +23,15 @@ data.forEach((uforeport) => {
 // Select the button
 var button = d3.select("#filter-btn");
 
+// button.on('click', function test() {
+//   document.body.style.backgroundColor = 'green';
+// });
+
+// test() 
 
 button.on('click', function table() {
+
+  ufo_table.html(``);
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
@@ -35,20 +42,20 @@ button.on('click', function table() {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  var filteredData = tableData.filter(row=> row.datetime === inputValue);
+  var filteredData = tableData.filter(alien=> alien.datetime === inputValue);
 
-  ufo_table.html(``);
 
 // append filtered data to the table 
-  filteredData.forEach(function(row) {
+  filteredData.forEach(function(alien) {
     var row= ufo_table.append("tr");
-    Object.entries(row).forEach(function([key,value]) {
+    Object.entries(alien).forEach(function([key,value]) {
     var cell = row.append("td");
     cell.text(value)  });
-  })})
+  })});
 
-  d3.selectAll("#filter-btn").on("click", table);
-  table(tableData);
+  // d3.selectAll("#filter-btn").on("click", table);
+
+  table(alien);
 
   
 
